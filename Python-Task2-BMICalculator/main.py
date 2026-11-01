@@ -1,10 +1,7 @@
-"""Calculate BMI from weight in kilograms and height in metres."""
-
 import math
 
-
 def read_positive_number(prompt):
-    """Keep asking until the user enters a finite number greater than zero."""
+
     while True:
         raw_value = input(prompt).strip()
         try:
@@ -19,9 +16,8 @@ def read_positive_number(prompt):
 
         return value
 
-
 def read_height_metres():
-    """Accept either metres (1.70) or centimetres (170) and return metres."""
+
     while True:
         raw_value = input(
             "Enter your height (metres, e.g. 1.70, or centimetres, e.g. 170): "
@@ -43,9 +39,8 @@ def read_height_metres():
 
         print("Enter height in metres (0.5 to 3) or centimetres (50 to 250).")
 
-
 def classify_bmi(bmi):
-    """Return the category specified in the internship task checklist."""
+
     if bmi < 18.5:
         return "Underweight"
     if bmi < 25:
@@ -53,7 +48,6 @@ def classify_bmi(bmi):
     if bmi < 30:
         return "Overweight"
     return "Obese"
-
 
 def main():
     print("BMI Calculator")
@@ -67,7 +61,5 @@ def main():
     print(f"Category: {category}")
     print("BMI is a general screening measure, not a medical diagnosis.")
 
-
 if __name__ == "__main__":
     main()
-
