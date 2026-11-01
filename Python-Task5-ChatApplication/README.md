@@ -1,44 +1,70 @@
 # Chat Application
 
-A beginner-tier, two-user command-line chat built with Python sockets and threads. The server accepts clients on localhost, adds a timestamp to messages, and tells the remaining users when someone disconnects.
+This is a simple command-line chat application built with Python sockets and threads. Run the server and two or more clients on the same computer to exchange messages.
+
+## Features
+
+- Supports multiple connected clients.
+- Lets each client choose a chat name.
+- Adds a time prefix to chat messages.
+- Shows join and leave notices.
+- Uses a receiving thread so incoming messages can appear while the user types.
+- Uses only Python's standard library.
 
 ## Requirements
 
 - Python 3
 - No third-party packages
-- Two terminal windows for the clients, plus one for the server
+- Three terminal windows to try the example with two clients
 
-## Run on one computer
+## Run it locally
 
-Open three PowerShell terminals in this folder.
+Open three terminal windows in this folder.
 
-In terminal 1, start the server:
+**Terminal 1 – start the server:**
 
-```powershell
+```bash
 python server.py
 ```
 
-In terminal 2, start the first client and enter a chat name:
+**Terminal 2 – start the first client:**
 
-```powershell
+```bash
 python client.py
 ```
 
-In terminal 3, start the second client and enter a different chat name:
+Enter a chat name when prompted.
 
-```powershell
+**Terminal 3 – start the second client:**
+
+```bash
 python client.py
 ```
 
-Type a message in either client terminal. It appears in both clients with a time prefix. Type `/quit` to leave; the other client receives a disconnect notice. Press Ctrl+C in the server terminal to stop the server.
+Enter a different chat name. Type a message in either client terminal to send it to the connected clients. Type `/quit` to leave the chat. Press `Ctrl+C` in the server terminal to stop the server.
+
+If your system uses `python3`, replace `python` with `python3` in the commands.
 
 ## How it works
 
-- `server.py` listens on `127.0.0.1:5000` and uses a thread for each connected client.
-- `client.py` uses one thread to receive messages while the main thread waits for typed messages.
-- Newline characters separate messages so multiple messages can be sent over the same socket connection.
+- `server.py` listens on `127.0.0.1:5000`.
+- The server starts a separate thread to handle each client connection.
+- `client.py` sends typed messages and runs a separate thread to receive messages.
+- Newline characters mark the end of each message.
 
-## Privacy and security
+## Troubleshooting
 
-This beginner version runs on the same computer and does not save chat messages to disk. Messages are not encrypted, so do not use it for private or sensitive conversations. The server relays messages to connected clients only.
+- **The client cannot connect:** Start `server.py` first, then run the clients.
+- **The port is already in use:** Close another program using port `5000` or change `PORT` in both `server.py` and `client.py` to the same unused port.
+- **Messages do not appear:** Make sure the server is still running and both clients connected successfully.
 
+## What this project helped me practise
+
+- Basic client-server communication
+- Python sockets
+- Using threads for concurrent tasks
+- Handling connection errors and client disconnections
+
+## Limitations
+
+This version is configured for local use on the same computer. Chat messages are not encrypted, and the program does not save messages to disk. Do not use it for private or sensitive conversations.
