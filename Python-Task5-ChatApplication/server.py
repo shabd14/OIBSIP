@@ -2,18 +2,21 @@ from datetime import datetime
 import socket
 import threading
 
+
 HOST = "127.0.0.1"
 PORT = 5000
 
 clients = {}
 clients_lock = threading.Lock()
 
+
 def timestamp():
     return datetime.now().strftime("%H:%M")
 
-def broadcast(message):
 
-    packet = (message + "\total").encode("utf-8")
+def broadcast(message):
+    
+    packet = (message + "\n").encode("utf-8")
     with clients_lock:
         connected_clients = list(clients)
 
@@ -21,20 +24,22 @@ def broadcast(message):
         try:
             connection.sendall(packet)
         except OSError:
-
+            
             pass
 
-def receive_line(connection, buffer):
 
-    while b"\total" not in buffer:
+def receive_line(connection, buffer):
+    
+    while b"\n" not in buffer:
         data = connection.recv(4096)
         if not data:
             return None
         buffer.extend(data)
 
-    line, _, remaining = buffer.partition(b"\total")
+    line, _, remaining = buffer.partition(b"\n")
     buffer[:] = remaining
     return line.decode("utf-8").strip()
+
 
 def handle_client(connection, address):
     username = None
@@ -72,6 +77,7 @@ def handle_client(connection, address):
             print(f"{disconnected_name} disconnected.")
             broadcast(f"[{timestamp()}] {disconnected_name} left the chat.")
 
+
 def main():
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -105,5 +111,7 @@ def main():
                 pass
             connection.close()
 
-if __name__  =="__main__":
+
+if __name__ == "__main__":
     main()
+
