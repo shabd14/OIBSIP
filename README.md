@@ -1,83 +1,109 @@
-# OIBSIP – Python Programming Internship
+# OIBSIP - Python Programming Internship
 
-This repository contains three Python projects completed as part of my Python programming internship tasks with Oasis Infobyte. I used these projects to practise writing small programs, handling user input, working with Python's standard library, and understanding basic client-server communication.
+The content in this repository contains 3 Python projects that I completed as part of my internship tasks during my Python Programming Internship at Oasis Infobyte. I was able to practice creating short programs, taking user input, utilizing the standard library and learning about client-server interactions.
 
 ## Projects
 
-### 1. BMI Calculator
-A command-line program that calculates Body Mass Index (BMI) from weight and height. It accepts height in metres or centimetres, checks invalid input, and displays a BMI category.
+### BMI Calculator
 
-**Concepts practised:** functions, input validation, numeric calculations, conditional statements.
+A command line program that allows the user to calculate their BMI using their weight and height. The user can enter their height in either meters or centimeters. The program also handles any invalid inputs and outputs the category of BMI they fall into.
 
-[Open project folder](Python-Task2-BMICalculator/)
+Skills practiced: functions, validation, mathematical calculations, conditions.
 
-### 2. Random Password Generator
-A command-line tool that generates passwords based on the character types selected by the user. It uses Python's `secrets` module for random selection.
+[View Project Folder](Python-Task2-BMICalculator/)
 
-**Concepts practised:** strings, loops, functions, user choices, Python's `secrets` module.
+### Random Password Generator
 
-[Open project folder](Python-Task3-RandomPasswordGenerator/)
+A command line program that will generate a password based on the characters chosen by the user. The program uses the secrets module from Python to generate a random selection.
 
-### 3. Chat Application
-A simple command-line chat application for multiple clients on the same computer. It uses sockets to exchange messages and threads to handle sending and receiving at the same time.
+Skills practiced: strings, loops, functions, user selections, secrets module.
 
-**Concepts practised:** sockets, threads, client-server communication, exception handling.
+[View Project Folder](Python-Task3-RandomPasswordGenerator/)
 
-[Open project folder](Python-Task5-ChatApplication/)
+### Chat Application
 
-## Technologies
+A simple chat application that allows multiple clients to communicate within the same computer. The application uses sockets to send messages between clients and threading to allow sending and receiving messages simultaneously.
+
+Skills practiced: sockets, threading, client-server interaction, exceptions.
+
+[View Project Folder](Python-Task5-ChatApplication/)
+
+## Technologies Used
 
 - Python 3
-- Python standard library
-- Sockets and threading (Chat Application)
 
-No third-party packages are required for these projects.
+- Standard Library
 
-## Repository structure
+- Sockets & Threading (Chat Application)
 
-```text
+No third party packages are required.
+
+## Project Structure
+
+```
+
 OIBSIP/
+
 ├── README.md
+
 ├── Python-Task2-BMICalculator/
-│   ├── README.md
-│   └── main.py
+
+│  ├── README.md
+
+│  └── main.py
+
 ├── Python-Task3-RandomPasswordGenerator/
-│   ├── README.md
-│   └── main.py
+
+│  ├── README.md
+
+│  └── main.py
+
 └── Python-Task5-ChatApplication/
-    ├── README.md
-    ├── client.py
-    └── server.py
+
+├── README.md
+
+├── client.py
+
+└── server.py
+
 ```
 
-## Running the projects
+## How to Run Projects
 
-1. Install Python 3 if it is not already installed.
-2. Clone or download this repository.
-3. Open a terminal in the folder for the project you want to run.
-4. Follow the run instructions in that project's README.
+1. Download Python 3
 
-For example, to run the BMI Calculator from its folder:
+2. Clone or download the repository
 
-```bash
+3. Navigate to the folder of the project you wish to run in your terminal
+
+4. Follow the instructions in the Readme file
+
+For example, to run the BMI Calculator:
+
+```
+
 python main.py
+
 ```
 
-On some systems, you may need to use `python3` instead of `python`.
+Depending on your system you may need to use python3.
 
-## What I practised
+## Skills Practiced
 
-While working on these tasks, I practised breaking a program into functions, validating user input, using built-in Python modules, and writing instructions so another person can run the code. The chat project also gave me practice with sockets and threads.
+I was able to practice splitting the program into functions, validating user input, using standard libraries in Python and providing clear instructions to allow someone else to run the code. I also practiced using sockets and threading when creating the chat application.
 
 ## Notes
 
-- The BMI Calculator is an educational example, not a medical diagnosis.
-- The password generator displays passwords in the terminal. Keep generated passwords private.
-- The Chat Application is configured for `127.0.0.1` and is intended for local testing. Messages are not encrypted.
+- BMI Calculator is for learning purposes only and should not be taken as a medical diagnosis.
 
-## Acknowledgement
+- The password generator will show passwords in the terminal. Keep generated passwords private.
 
-These projects were completed as part of my Python programming internship tasks with Oasis Infobyte.
+- Chat Application has been set to 127.0.0.1 and is for local testing only. Messages are not encrypted.
+
+## Acknowledgements
+
+These projects have been completed as part of my internship tasks during my Python Programming Internship at Oasis Infobyte.
 
 ---
-If you try one of the projects and notice an issue, feel free to open an issue with steps to reproduce it.
+
+If you try out any of the projects and encounter any issues, please feel free to raise an issue with steps to replicate.
