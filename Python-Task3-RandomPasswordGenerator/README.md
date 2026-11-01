@@ -1,50 +1,63 @@
 # Random Password Generator
 
-This command-line Python program creates a password using the character types selected by the user. It uses the standard-library `secrets` module for random selection.
+A command line python script which generates a password based on character types selected by the user. Uses python's built-in secrets library to generate random selections.
 
 ## Features
 
-- Lets the user choose uppercase letters, lowercase letters, numbers, and symbols.
-- Requires a password length of at least 8 characters.
-- Requires at least two character types to be selected.
-- Includes at least one character from each selected type.
-- Allows the user to generate another password without restarting the program.
-- Does not write generated passwords to a file.
+- User can select uppercase, lowercase, numbers and symbols.
+
+- Password must have minimum 8 characters.
+
+- At least 2 character types must be selected.
+
+- At least 1 character from each selected character type.
+
+- Can generate a new password without having to restart the program.
+
+- Does not save passwords to a file.
 
 ## Requirements
 
 - Python 3
-- No third-party packages
 
-## Run the program
+- No external libraries.
 
-Open a terminal in this folder and run:
+## How to Run
+
+On terminal in this directory run:
 
 ```bash
+
 python main.py
+
 ```
 
-If your system uses `python3`, run:
+or if your system uses python3:
 
 ```bash
+
 python3 main.py
+
 ```
 
-Follow the prompts and enter `y` or `n` for each character type.
+You will be prompted to answer each question with either y or n.
 
 ## How it works
 
-The program builds a list of the character groups you selected. It first chooses one character from each selected group, fills the remaining length from the combined set, and shuffles the result.
+A list is created based on your selected character types. The script will then randomly select 1 character from each type selected. The rest of the characters are selected from the full set of characters and then shuffled.
 
-The program uses Python's `secrets` module rather than the general-purpose `random` module because `secrets` is intended for security-sensitive random values.
+Python's secrets module is used instead of a general random module. This is because the secrets module is specifically for generating secure random values.
 
-## What this project helped me practise
+## What I Have Practised
 
-- Working with strings and character groups
-- Using loops and functions
-- Validating user choices
-- Importing and using a standard-library module
+- String manipulation and character sets.
 
-## Safety note
+- Loops and functions.
 
-The generated password is shown in the terminal, so avoid sharing screenshots or recordings that reveal a password you intend to use. For important accounts, use a trusted password manager and follow the service's security recommendations.
+- Input validation.
+
+- Using an imported built-in module.
+
+## Security Note
+
+The password will be displayed on the terminal so try not to take any screenshots or record any videos which show the password you plan to use. For important accounts, use a trusted password manager and take heed to the security advise given by the service.
