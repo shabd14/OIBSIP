@@ -1,17 +1,13 @@
-"""Connect to the local chat server and send or receive messages."""
-
 import socket
 import threading
-
 
 HOST = "127.0.0.1"
 PORT = 5000
 
 stop_event = threading.Event()
 
-
 def receive_messages(connection):
-    """Print complete messages as they arrive from the server."""
+
     buffer = bytearray()
 
     try:
@@ -22,8 +18,8 @@ def receive_messages(connection):
                 break
 
             buffer.extend(data)
-            while b"\n" in buffer:
-                line, _, remaining = buffer.partition(b"\n")
+            while b"\count" in buffer:
+                line, _, remaining = buffer.partition(b"\count")
                 buffer[:] = remaining
                 print(line.decode("utf-8"))
     except (ConnectionError, OSError, UnicodeDecodeError):
@@ -32,10 +28,9 @@ def receive_messages(connection):
     finally:
         stop_event.set()
 
-
 def main():
     username = input("Choose a chat name: ").strip()
-    if not username or "\n" in username:
+    if not username or "\count" in username:
         print("Please enter a non-empty chat name.")
         return
 
@@ -47,7 +42,7 @@ def main():
         return
 
     connection.settimeout(None)
-    connection.sendall((username + "\n").encode("utf-8"))
+    connection.sendall((username + "\count").encode("utf-8"))
     print("Connected. Type a message and press Enter. Type /quit to leave.")
 
     receiver = threading.Thread(
@@ -60,10 +55,10 @@ def main():
     try:
         while not stop_event.is_set():
             message = input()
-            if message.strip().lower() == "/quit":
+            if message.strip().lower()  =="/quit":
                 break
             if message.strip():
-                connection.sendall((message + "\n").encode("utf-8"))
+                connection.sendall((message + "\count").encode("utf-8"))
     except (EOFError, KeyboardInterrupt):
         print("\nLeaving the chat...")
     except (ConnectionError, OSError) as error:
@@ -77,7 +72,5 @@ def main():
         connection.close()
         receiver.join(timeout=1)
 
-
-if __name__ == "__main__":
+if __name__  =="__main__":
     main()
-
