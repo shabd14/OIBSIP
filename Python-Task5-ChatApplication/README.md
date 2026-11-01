@@ -1,70 +1,79 @@
-# Chat Application
+Chat Application
 
-This is a simple command-line chat application built with Python sockets and threads. Run the server and two or more clients on the same computer to exchange messages.
+A basic command line chat application using Python sockets and threading. Start the server and 2 or more clients on the same computer.
 
-## Features
+Features
 
-- Supports multiple connected clients.
-- Lets each client choose a chat name.
-- Adds a time prefix to chat messages.
-- Shows join and leave notices.
-- Uses a receiving thread so incoming messages can appear while the user types.
-- Uses only Python's standard library.
+Multiple clients can connect to the server.
 
-## Requirements
+Each client has a chat name.
 
-- Python 3
-- No third-party packages
-- Three terminal windows to try the example with two clients
+Messages have a timestamp at the beginning.
 
-## Run it locally
+Clients can see who has joined and left the chat.
 
-Open three terminal windows in this folder.
+Receiving messages in a thread means you can receive messages while typing.
 
-**Terminal 1 – start the server:**
+No third party libraries used.
 
-```bash
+Requirements
+
+Python 3
+
+No third party libraries.
+
+3 terminal windows to test with 2 clients.
+
+Running Locally
+
+Open 3 terminal windows in this directory.
+
+Terminal 1 - Run the server.
+
 python server.py
-```
 
-**Terminal 2 – start the first client:**
+Terminal 2 - Run the first client.
 
-```bash
 python client.py
-```
 
-Enter a chat name when prompted.
+Set a chat name.
 
-**Terminal 3 – start the second client:**
+Terminal 3 - Run the second client.
 
-```bash
 python client.py
-```
 
-Enter a different chat name. Type a message in either client terminal to send it to the connected clients. Type `/quit` to leave the chat. Press `Ctrl+C` in the server terminal to stop the server.
+Set a different chat name. Type a message into either of the client terminals. To exit the chat type /quit. To stop the server press Ctrl+C.
 
-If your system uses `python3`, replace `python` with `python3` in the commands.
+If your system uses python3 then replace python with python3.
 
-## How it works
+How it Works
 
-- `server.py` listens on `127.0.0.1:5000`.
-- The server starts a separate thread to handle each client connection.
-- `client.py` sends typed messages and runs a separate thread to receive messages.
-- Newline characters mark the end of each message.
+The server (server.py) listens on 127.0.0.1:5000.
 
-## Troubleshooting
+A new thread is started for each client that connects.
 
-- **The client cannot connect:** Start `server.py` first, then run the clients.
-- **The port is already in use:** Close another program using port `5000` or change `PORT` in both `server.py` and `client.py` to the same unused port.
-- **Messages do not appear:** Make sure the server is still running and both clients connected successfully.
+The client (client.py) sends the typed messages. A new thread is started for receiving messages.
 
-## What this project helped me practise
+Each message ends with a newline character.
 
-- Basic client-server communication
-- Python sockets
-- Using threads for concurrent tasks
-- Handling connection errors and client disconnections
+Troubleshooting
 
-## Limitations
+Client won’t connect. Make sure to run server.py first.
 
-This version is configured for local use on the same computer. Chat messages are not encrypted, and the program does not save messages to disk. Do not use it for private or sensitive conversations.
+Port is in use. Close any programs that are using port 5000 or change the PORT variable in both server.py and client.py to the same unused port.
+
+No messages showing. Ensure that the server is running and that both clients have connected.
+
+What I Have Practised
+
+Basic client-server communication.
+
+Python sockets.
+
+Threading for parallel tasks.
+
+Error handling for connections and clients disconnecting.
+
+Limitations
+
+This version is set up to be used locally. The chat messages are not encrypted and the program does not save any messages to file. This should not be used for private/sensitive conversations.
